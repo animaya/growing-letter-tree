@@ -21,12 +21,13 @@ class LetterTreeGame {
 
     createTree(letter) {
         const tree = {
-            x: Math.random() * this.canvas.width,
-            y: this.canvas.height - 50,
-            letter: letter,
-            growth: 0,
-            branches: []
-        };
+        x: Math.random() * this.canvas.width,
+        y: this.canvas.height - 50,
+        letter: letter,
+        growth: 0,
+        branches: [],
+        color: `hsl(${Math.random() * 60 + 80}, 30%, 50%)`
+    };
         this.trees.push(tree);
     }
 
@@ -51,7 +52,7 @@ class LetterTreeGame {
     }
 
     drawTree(tree) {
-        this.ctx.strokeStyle = '#4a5d23';
+        this.ctx.strokeStyle = tree.color;
         this.ctx.lineWidth = 2;
         this.ctx.beginPath();
         this.ctx.moveTo(tree.x, tree.y);
