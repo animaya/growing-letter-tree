@@ -8,6 +8,15 @@ class LetterTreeGame {
         this.gameLoop();
     }
 
+    playSound(letter) {
+    // Simulate different sounds for different letters
+    const frequency = 200 + (letter.charCodeAt(0) - 65) * 20;
+    console.log(`Playing sound at ${frequency}Hz for letter: ${letter}`);
+    
+    // In a real implementation, you'd use Web Audio API here
+    // For now, we'll just log the sound
+}
+
     setupCanvas() {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
@@ -26,6 +35,7 @@ class LetterTreeGame {
         this.canvas.height - 50,
         letter
     );
+    this.playSound(letter);
     this.trees.push(tree);
 }
         
