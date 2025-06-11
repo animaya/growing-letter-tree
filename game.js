@@ -20,16 +20,16 @@ class LetterTreeGame {
     }
 
     createTree(letter) {
-        const tree = {
-        x: Math.random() * this.canvas.width,
-        y: this.canvas.height - 50,
-        letter: letter,
-        growth: 0,
-        branches: [],
-        color: `hsl(${Math.random() * 60 + 80}, 30%, 50%)`
-    };
-        this.trees.push(tree);
-    }
+        
+    const tree = new Tree(
+        Math.random() * this.canvas.width,
+        this.canvas.height - 50,
+        letter
+    );
+    this.trees.push(tree);
+}
+        
+    
 
     gameLoop() {
         this.update();
@@ -39,16 +39,16 @@ class LetterTreeGame {
 
     update() {
         this.trees.forEach(tree => {
-            tree.growth += 0.01;
-        });
+        tree.update();
+    });
     }
 
     render() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        
-        this.trees.forEach(tree => {
-            this.drawTree(tree);
-        });
+    
+    this.trees.forEach(tree => {
+        tree.render(this.ctx);
+    });
     }
 
     drawTree(tree) {
