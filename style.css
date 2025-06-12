@@ -1,9 +1,18 @@
 body {
     margin: 0;
     padding: 0;
-    background: #001122;
+    overflow: hidden;
     color: #ffffff;
-    font-family: 'Courier New', monospace;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #001122, #003366, #001122);
+    background-size: 400% 400%;
+    animation: gradientBackground 20s ease infinite;
+}
+
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 #game-container {
@@ -23,29 +32,60 @@ body {
     bottom: 20px;
     left: 20px;
     z-index: 100;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
 }
 
 #input-area p {
     background: rgba(255, 255, 255, 0.1);
     padding: 10px;
     border-radius: 5px;
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 #typed-letters {
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: 600;
 }
 
 #clear-btn {
     margin-top: 10px;
-    padding: 5px 10px;
-    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    background: linear-gradient(45deg, #5c258d, #4389a2);
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s, transform 0.3s;
 }
 
 #clear-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(45deg, #4389a2, #5c258d);
+    transform: translateY(-2px);
+}
+
+#header {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 100;
+}
+
+#header h1 {
+    margin: 0;
+    font-size: 2em;
+    background: linear-gradient(45deg, #f5a623, #f76b1c);
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: 2px;
+    font-weight: 600;
 }
